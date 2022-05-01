@@ -1,0 +1,7 @@
+[
+{
+  "directory": "d:/GitHub/day_day_learning/TestProject/build",
+  "command": "C:/cygwin64/bin/g++.exe    -g   -std=gnu++17 -o CMakeFiles/main.dir/main.cpp.o -c d:/GitHub/day_day_learning/TestProject/main.cpp",
+  "file": "d:/GitHub/day_day_learning/TestProject/main.cpp"
+}
+]
