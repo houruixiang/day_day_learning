@@ -26,7 +26,7 @@
 project(CMakeTemplate VERSION 1.0.0 LANGUAGES C CXX)
 ``` 
 第一个字段是项目名称；通过``` VERSION``` 指定版本号，格式为```main.minor.patch.tweak``` ，并且CMake会将对应的值分别赋值给以下变量（如果没有设置，则为空字符串）：
-``` 
+```cpp 
 PROJECT_VERSION, <PROJECT-NAME>_VERSION
 PROJECT_VERSION_MAJOR, <PROJECT-NAME>_VERSION_MAJOR
 PROJECT_VERSION_MINOR, <PROJECT-NAME>_VERSION_MINOR
@@ -38,13 +38,13 @@ PROJECT_VERSION_TWEAK, <PROJECT-NAME>_VERSION_TWEAKS
 
 比如:
 
-``` 
+```cpp 
 configure_file(src/c/cmake_template_version.h.in "${PROJECT_SOURCE_DIR}/src/c/cmake_template_version.h")
 ``` 
 
 假如cmake_template_version.h.in内容如下：
 
-``` 
+```cpp 
 #define CMAKE_TEMPLATE_VERSION_MAJOR @CMakeTemplate_VERSION_MAJOR@
 #define CMAKE_TEMPLATE_VERSION_MINOR @CMakeTemplate_VERSION_MINOR@
 #define CMAKE_TEMPLATE_VERSION_PATCH @CMakeTemplate_VERSION_PATCH@
@@ -52,7 +52,7 @@ configure_file(src/c/cmake_template_version.h.in "${PROJECT_SOURCE_DIR}/src/c/cm
 
 执行cmake配置构建系统后，将会自动生成文件：cmake_template_version.h，其中``` @<var-name>@``` 将会被替换为对应的值：
 
-``` 
+```cpp 
 #define CMAKE_TEMPLATE_VERSION_MAJOR 1
 #define CMAKE_TEMPLATE_VERSION_MINOR 0
 #define CMAKE_TEMPLATE_VERSION_PATCH 0
@@ -69,7 +69,7 @@ set(CMAKE_C_STANDARD 99)
 CMAKE_、_CMAKE或者以下划线开头后面加上任意CMake命令的变量名都是CMake保留的。
 3 配置编译选项
 通过命令```add_compile_options```命令可以为所有编译器配置编译选项（同时对多个编译器生效）； 通过设置变量```CMAKE_C_FLAGS```可以配置c编译器的编译选项； 而设置变量```CMAKE_CXX_FLAGS```可配置针对c++编译器的编译选项。 比如：
-``` 
+```cpp 
 add_compile_options(-Wall -Wextra -pedantic -Werror)
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -pipe -std=c99")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pipe -std=c++11")
@@ -77,7 +77,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pipe -std=c++11")
 
 4 配置编译类型
 通过设置变量```CMAKE_BUILD_TYPE```来配置编译类型，可设置为：```Debug、Release、RelWithDebInfo、MinSizeRel```等，比如：
-``` 
+```cpp 
 set(CMAKE_BUILD_TYPE Debug)
 ``` 
 
@@ -88,12 +88,12 @@ cmake -B build -DCMAKE_BUILD_TYPE=Debug
 如果设置编译类型为Debug，那么对于c编译器，CMake会检查是否有针对此编译类型的编译选项CMAKE_C_FLAGS_DEBUG，如果有，则将它的配置内容加到CMAKE_C_FLAGS中。
 
 可以针对不同的编译类型设置不同的编译选项，比如对于Debug版本，开启调试信息，不进行代码优化：
-``` 
+```cpp
 set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -g -O0")
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g -O0")
 ``` 
 对于Release版本，不包含调试信息，优化等级设置为2：
-``` 
+```cpp
 set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -O2")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O2")
 ``` 
@@ -101,13 +101,17 @@ set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O2")
 5 添加全局宏定义
 通过命令```add_definitions```可以添加全局的宏定义，在源码中就可以通过判断不同的宏定义实现相应的代码逻辑。用法如下：
 
-```add_definitions(-DDEBUG -DREAL_COOL_ENGINEER) ``` 
+```cpp
+add_definitions(-DDEBUG -DREAL_COOL_ENGINEER)
+``` 
 
 
 6 添加include目录
 通过命令```include_directories```来设置头文件的搜索目录，比如：
 
-``` include_directories(src/c)```
+```cpp
+include_directories(src/c)
+```
 
 
 二 编译目标文件
@@ -116,7 +120,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O2")
 编译：确定编译目标所需要的源文件
 链接：确定链接的时候需要依赖的额外的库
 下面以开源项目(cmake-template)来演示。项目的目录结构如下：
-``` 
+```cpp 
 ./cmake-template
 ├── CMakeLists.txt
 ├── src
@@ -144,7 +148,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O2")
 1 编译静态库
 这一步需要将项目目录路径src/c/math下的源文件编译为静态库，那么需要获取编译此静态库需要的文件列表，可以使用set命令，或者file命令来进行设置。比如：
 
-```
+```cpp
 file(GLOB_RECURSE MATH_LIB_SRC src/c/math/*.c)
 add_library(math STATIC ${MATH_LIB_SRC})
 ```
@@ -158,7 +162,7 @@ add_library(math STATIC ${MATH_LIB_SRC})
 通过```add_executable```命令来往构建系统中添加一个可执行构建目标，同样需要指定编译需要的源文件。但是对于可执行文件来说，有时候还会依赖其他的库，则需要使用```target_link_libraries```命令来声明构建此可执行文件需要链接的库。
 
 在示例项目中，main.c就使用了```src/c/math```下实现的一些函数接口，所以依赖于前面构建的math库。所以在CMakeLists.txt中添加以下内容：
-```
+```cpp
 add_executable(demo src/c/main.c)
 target_link_libraries(demo math)
 ```
@@ -166,7 +170,7 @@ target_link_libraries(demo math)
 第一行说明编译可执行文件demo需要的源文件（可以指定多个源文件，此处只是以单个文件作为示例）；第二行表明对math库存在依赖。
 
 此时可以在项目的根目录下执行构建和编译命令，并执行demo:
-```
+```cpp
 ➜ # cmake -B cmake-build
 ➜ # cmake --build cmake-build
 ➜ # ./cmake-build/demo
@@ -183,7 +187,7 @@ Hello CMake!
 通过设置```CMAKE_INSTALL_PREFIX```变量说明安装的路径；
 3.15往后的版本可以使用```cmake --install --prefix <install-path>```覆盖指定安装路径。
 比如，在示例项目中，把math和demo两个目标按文件类型安装：
-```
+```cpp
 install(TARGETS math demo
         RUNTIME DESTINATION bin
         LIBRARY DESTINATION lib
@@ -197,14 +201,13 @@ install(TARGETS math demo
 ```CMAKE_INSTALL_PREFIX```在不同的系统上有不同的默认值，使用的时候最好显式指定路径。
 同时，还可以使用install命令安装头文件：
 
-```
+```cpp
 file(GLOB_RECURSE MATH_LIB_HEADERS src/c/math/*.h)
 install(FILES ${MATH_LIB_HEADERS} DESTINATION include/math)
 ```
 
-
 假如将安装到当前项目的output文件夹下，可以执行：
-```
+```cpp
 > ➜ # cmake -B cmake-build -DCMAKE_INSTALL_PREFIX=./output
 > ➜ # cmake --build cmake-build
 > ➜ # cd cmake-build && make install && cd -
@@ -223,7 +226,7 @@ install(FILES ${MATH_LIB_HEADERS} DESTINATION include/math)
 
 打包的内容就是install命令安装的内容，关键需要设置的变量有：
 
-```
+```cpp
 CPACK_GENERATOR	             打包使用的压缩工具，比如"ZIP"
 CPACK_OUTPUT_FILE_PREFIX	 打包安装的路径前缀
 CPACK_INSTALL_PREFIX	     打包压缩包的内部目录前缀
@@ -231,7 +234,7 @@ CPACK_PACKAGE_FILE_NAME	     打包压缩包的名称，由CPACK_PACKAGE_NAME、
 ```
 
 比如：
-```
+```cpp
 include(CPack)
 set(CPACK_GENERATOR "ZIP")
 set(CPACK_PACKAGE_NAME "CMakeTemplate")
@@ -251,7 +254,7 @@ set(CPACK_PACKAGE_VERSION ${PROJECT_VERSION})
 
 
 此时重新执行构建，使用cpack命令执行打包：
-```
+```cpp
 ➜ # cmake -B cmake-build -DCPACK_OUTPUT_FILE_PREFIX=`pwd`/output
 ➜ # cmake --build cmake-build
 ➜ # cd cmake-build && cpack && cd -
@@ -272,7 +275,7 @@ CMakeLists.txt中通过命令```enable_testing()```或者```include(CTest)```来
 使用```add_test```命令添加测试样例，指定测试的名称和测试命令、参数；
 构建编译完成后使用```ctest```命令行工具运行测试。
 为了控制是否开启测试，可使用option命令设置一个开关，在开关打开时才进行测试，比如：
-```
+```cpp
 option(CMAKE_TEMPLATE_ENABLE_TEST "Whether to enable unit tests" ON)
 if (CMAKE_TEMPLATE_ENABLE_TEST)
     message(STATUS "Unit tests enabled")
@@ -286,7 +289,7 @@ endif()
 1 编写测试程序
 在此文的示例代码中，针对add.c和minus.c实现了两个测试程序，它们的功能是类似的，接受三个参数，用第一和第二个计算两个参数的和或者差，判断是否和第三个参数相等，如test_add.c的代码为：
 
-``` 
+```cpp
 // @Author: Farmer Li, 公众号: 很酷的程序员/RealCoolEngineer
 // @Date: 2021-05-10
 
@@ -319,7 +322,7 @@ int main(int argc, char* argv[]) {
 
 2 添加测试
 接下来先使用add_executable命令生成测试程序，然后使用add_test命令添加单元测试：
-``` 
+```cpp
 add_executable(test_add test/c/test_add.c)
 add_executable(test_minus test/c/test_minus.c)
 target_link_libraries(test_add math)
@@ -330,7 +333,7 @@ add_test(NAME test_minus COMMAND test_minus 40 96 -56)
 
 3 执行测试
 现在重新执行cmake命令更新构建系统，执行构建，再执行测试：
-``` 
+```cpp
 ➜ # cmake -B cmake-build
 ➜ # cmake --build cmake-build
 ➜ # cd cmake-build && ctest && cd -
