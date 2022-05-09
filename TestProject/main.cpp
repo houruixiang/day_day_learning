@@ -7,7 +7,7 @@
 #include "ConvertVariant.h"
 #include "Callbacks.h"
 #include "CallbackLists.h"
-
+#include "SimpleCallbackList.h"
 
 int main(void)
 {
@@ -19,6 +19,8 @@ int main(void)
     Test_CallBacks();
 
     Test_CallbackList();
+
+    Test_SimpleCallbackList();
 
     return 0;
 }

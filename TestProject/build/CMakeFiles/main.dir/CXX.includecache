@@ -34,6 +34,16 @@ functional
 type_traits
 -
 
+../include/SimpleCallbackList.h
+vector
+-
+iostream
+-
+functional
+-
+type_traits
+-
+
 d:/GitHub/day_day_learning/TestProject/main.cpp
 iostream
 -
@@ -53,4 +63,6 @@ Callbacks.h
 d:/GitHub/day_day_learning/TestProject/Callbacks.h
 CallbackLists.h
 d:/GitHub/day_day_learning/TestProject/CallbackLists.h
+SimpleCallbackList.h
+d:/GitHub/day_day_learning/TestProject/SimpleCallbackList.h
 

@@ -4,5 +4,6 @@
 CMakeFiles/main.dir/main.cpp.o: ../include/CallbackLists.h
 CMakeFiles/main.dir/main.cpp.o: ../include/Callbacks.h
 CMakeFiles/main.dir/main.cpp.o: ../include/ConvertVariant.h
+CMakeFiles/main.dir/main.cpp.o: ../include/SimpleCallbackList.h
 CMakeFiles/main.dir/main.cpp.o: ../main.cpp
 
