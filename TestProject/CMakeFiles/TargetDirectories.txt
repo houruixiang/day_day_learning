@@ -1,3 +1,0 @@
-/cygdrive/d/GitHub/day_day_learning/TestProject/CMakeFiles/rebuild_cache.dir
-/cygdrive/d/GitHub/day_day_learning/TestProject/CMakeFiles/edit_cache.dir
-/cygdrive/d/GitHub/day_day_learning/TestProject/CMakeFiles/main.dir
