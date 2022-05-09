@@ -1,0 +1,154 @@
+std	C:\Users\ruiho\AppData\Roaming\codelite\tmp\codelite_templates.hpp	/^namespace std { template<typename _Tp> class shared_ptr {$/;"	namespace	line:1
+shared_ptr	C:\Users\ruiho\AppData\Roaming\codelite\tmp\codelite_templates.hpp	/^namespace std { template<typename _Tp> class shared_ptr { $/;"	class	line:1	namespace:std
+operator ->	C:\Users\ruiho\AppData\Roaming\codelite\tmp\codelite_templates.hpp	/^    _Tp* operator->();$/;"	prototype	line:2	class:std::shared_ptr	access:private	signature:()	returns:_Tp 
+reset	C:\Users\ruiho\AppData\Roaming\codelite\tmp\codelite_templates.hpp	/^    void reset( Y* ptr );$/;"	prototype	line:3	class:std::shared_ptr	access:private	signature:( Y* ptr )	returns:void 
+reset	C:\Users\ruiho\AppData\Roaming\codelite\tmp\codelite_templates.hpp	/^    void reset( Y* ptr, Deleter d );$/;"	prototype	line:4	class:std::shared_ptr	access:private	signature:( Y* ptr, Deleter d )	returns:void 
+reset	C:\Users\ruiho\AppData\Roaming\codelite\tmp\codelite_templates.hpp	/^    void reset( Y* ptr, Deleter d, Alloc alloc );$/;"	prototype	line:5	class:std::shared_ptr	access:private	signature:( Y* ptr, Deleter d, Alloc alloc )	returns:void 
+get	C:\Users\ruiho\AppData\Roaming\codelite\tmp\codelite_templates.hpp	/^    _T* get() const;$/;"	prototype	line:6	class:std::shared_ptr	access:private	signature:() const	returns:_T 
+WARPPED_MESSAGE_H	D:\GitHub\Messaging\base\wrapped_message.h	/^#define WARPPED_MESSAGE_H$/;"	macro	line:2
+messaging	D:\GitHub\Messaging\base\wrapped_message.h	/^namespace messaging {$/;"	namespace	line:4
+message_base	D:\GitHub\Messaging\base\wrapped_message.h	/^struct message_base {$/;"	struct	line:5	namespace:messaging
+~message_base	D:\GitHub\Messaging\base\wrapped_message.h	/^    virtual ~message_base() {}$/;"	function	line:6	struct:messaging::message_base	access:public	implementation:virtual	signature:()	returns:virtual 
+wrapped_message	D:\GitHub\Messaging\base\wrapped_message.h	/^template<typename Msg> struct wrapped_message: public message_base { $/;"	struct	line:13	namespace:messaging	inherits:message_base
+contents	D:\GitHub\Messaging\base\wrapped_message.h	/^    Msg contents;$/;"	member	line:14	struct:messaging::wrapped_message	access:public
+wrapped_message	D:\GitHub\Messaging\base\wrapped_message.h	/^    explicit wrapped_message(Msg const& contents_): contents(contents_) {}$/;"	function	line:15	struct:messaging::wrapped_message	access:public	signature:(Msg const& contents_)	returns:explicit 
+interface_machine	D:\GitHub\Messaging\interface_machine.h	/^class interface_machine {$/;"	class	line:12
+iom	D:\GitHub\Messaging\interface_machine.h	/^    std::mutex iom;$/;"	member	line:13	class:interface_machine	access:private
+incoming	D:\GitHub\Messaging\interface_machine.h	/^    messaging::receiver incoming;$/;"	member	line:14	class:interface_machine	access:private
+done	D:\GitHub\Messaging\interface_machine.h	/^    void done()$/;"	function	line:16	class:interface_machine	access:public	signature:()	returns:void 
+run	D:\GitHub\Messaging\interface_machine.h	/^    void run()$/;"	function	line:20	class:interface_machine	access:public	signature:()	returns:void 
+get_sender	D:\GitHub\Messaging\interface_machine.h	/^    messaging::sender get_sender()$/;"	function	line:87	class:interface_machine	access:public	signature:()	returns:messaging :: sender 
+RECEVIER_H	D:\GitHub\Messaging\receiver\receiver.h	/^#define RECEVIER_H$/;"	macro	line:2
+messaging	D:\GitHub\Messaging\receiver\receiver.h	/^namespace messaging {$/;"	namespace	line:8
+receiver	D:\GitHub\Messaging\receiver\receiver.h	/^class receiver {$/;"	class	line:9	namespace:messaging
+operator sender	D:\GitHub\Messaging\receiver\receiver.h	/^    operator sender()$/;"	function	line:11	class:messaging::receiver	access:public	signature:()
+wait	D:\GitHub\Messaging\receiver\receiver.h	/^    dispatcher wait()$/;"	function	line:16	class:messaging::receiver	access:public	signature:()	returns:dispatcher 
+q	D:\GitHub\Messaging\receiver\receiver.h	/^    queue q; \/\/a receiver owns the queue$/;"	member	line:22	class:messaging::receiver	access:private
+atm	D:\GitHub\Messaging\atm.h	/^class atm {$/;"	class	line:7
+incoming	D:\GitHub\Messaging\atm.h	/^    messaging::receiver incoming;$/;"	member	line:8	class:atm	access:private
+bank	D:\GitHub\Messaging\atm.h	/^    messaging::sender bank;$/;"	member	line:9	class:atm	access:private
+interface_hardware	D:\GitHub\Messaging\atm.h	/^    messaging::sender interface_hardware;$/;"	member	line:10	class:atm	access:private
+pin	D:\GitHub\Messaging\atm.h	/^    std::string pin;$/;"	member	line:12	class:atm	access:private
+account	D:\GitHub\Messaging\atm.h	/^    std::string account;$/;"	member	line:13	class:atm	access:private
+withdrawal_amount	D:\GitHub\Messaging\atm.h	/^    unsigned int withdrawal_amount;$/;"	member	line:14	class:atm	access:private
+state	D:\GitHub\Messaging\atm.h	/^    void (atm::*state)(); \/\/functor, pointer to atm member function$/;"	member	line:15	class:atm	access:private
+atm	D:\GitHub\Messaging\atm.h	/^    atm(messaging::sender bank_, messaging::sender interface_hardware_)$/;"	function	line:18	class:atm	access:public	signature:(messaging::sender bank_, messaging::sender interface_hardware_)
+atm	D:\GitHub\Messaging\atm.h	/^    atm(atm const&) = delete;$/;"	prototype	line:20	class:atm	access:public	signature:(atm const&)
+operator =	D:\GitHub\Messaging\atm.h	/^    atm& operator=(atm const&) = delete;$/;"	prototype	line:21	class:atm	access:public	signature:(atm const&)	returns:atm 
+done	D:\GitHub\Messaging\atm.h	/^    void done()$/;"	function	line:23	class:atm	access:public	signature:()	returns:void 
+run	D:\GitHub\Messaging\atm.h	/^    void run()$/;"	function	line:27	class:atm	access:public	signature:()	returns:void 
+get_sender	D:\GitHub\Messaging\atm.h	/^    messaging::sender get_sender()$/;"	function	line:38	class:atm	access:public	signature:()	returns:messaging :: sender 
+process_withdrawal	D:\GitHub\Messaging\atm.h	/^    void process_withdrawal()$/;"	function	line:44	class:atm	access:private	signature:()	returns:void 
+process_balance	D:\GitHub\Messaging\atm.h	/^    void process_balance()$/;"	function	line:62	class:atm	access:private	signature:()	returns:void 
+wait_for_action	D:\GitHub\Messaging\atm.h	/^    void wait_for_action()$/;"	function	line:73	class:atm	access:private	signature:()	returns:void 
+verifying_pin	D:\GitHub\Messaging\atm.h	/^    void verifying_pin()$/;"	function	line:90	class:atm	access:private	signature:()	returns:void 
+getting_pin	D:\GitHub\Messaging\atm.h	/^    void getting_pin()$/;"	function	line:104	class:atm	access:private	signature:()	returns:void 
+waiting_for_card	D:\GitHub\Messaging\atm.h	/^    void waiting_for_card()$/;"	function	line:125	class:atm	access:private	signature:()	returns:void 
+done_processing	D:\GitHub\Messaging\atm.h	/^    void done_processing()$/;"	function	line:137	class:atm	access:private	signature:()	returns:void 
+DISPATHCER_H	D:\GitHub\Messaging\dispatcher\dispatcher.h	/^#define DISPATHCER_H$/;"	macro	line:2
+messaging	D:\GitHub\Messaging\dispatcher\dispatcher.h	/^namespace messaging {$/;"	namespace	line:8
+close_queue	D:\GitHub\Messaging\dispatcher\dispatcher.h	/^class close_queue {}; \/\/the message for closing the queue$/;"	class	line:9	namespace:messaging
+dispatcher	D:\GitHub\Messaging\dispatcher\dispatcher.h	/^class dispatcher {$/;"	class	line:11	namespace:messaging
+dispatcher	D:\GitHub\Messaging\dispatcher\dispatcher.h	/^    explicit dispatcher(queue* q_) : q(q_),chained(false) {}$/;"	function	line:19	class:messaging::dispatcher	access:public	signature:(queue* q_)	returns:explicit 
+dispatcher	D:\GitHub\Messaging\dispatcher\dispatcher.h	/^    dispatcher(const dispatcher&) = delete; \/\/can't be copied$/;"	prototype	line:20	class:messaging::dispatcher	access:public	signature:(const dispatcher&)
+operator =	D:\GitHub\Messaging\dispatcher\dispatcher.h	/^    dispatcher& operator=(const dispatcher&) = delete;$/;"	prototype	line:21	class:messaging::dispatcher	access:public	signature:(const dispatcher&)	returns:dispatcher 
+dispatcher	D:\GitHub\Messaging\dispatcher\dispatcher.h	/^    dispatcher(dispatcher&& other) : q(other.q), chained(other.chained) \/\/ can be moved$/;"	function	line:23	class:messaging::dispatcher	access:public	signature:(dispatcher&& other)
+handle	D:\GitHub\Messaging\dispatcher\dispatcher.h	/^    template<typename Message,typename Func>     TemplateDispatcher<dispatcher, Message, Func> handle(Func&& f) $/;"	function	line:33	class:messaging::dispatcher	access:public	signature:(Func&& f)	returns:template TemplateDispatcher <dispatcher, Message, Func> 
+noexcept	D:\GitHub\Messaging\dispatcher\dispatcher.h	/^    ~dispatcher() noexcept(false) \/\/the destructor might throw exceptions$/;"	function	line:39	class:messaging::dispatcher	access:public	signature:(false)
+wait_and_dispatch	D:\GitHub\Messaging\dispatcher\dispatcher.h	/^    void wait_and_dispatch()$/;"	function	line:47	class:messaging::dispatcher	access:private	signature:()	returns:void 
+dispatch	D:\GitHub\Messaging\dispatcher\dispatcher.h	/^    bool dispatch(const std::shared_ptr<message_base>& msg)$/;"	function	line:55	class:messaging::dispatcher	access:private	signature:(const std::shared_ptr<message_base>& msg)	returns:bool 
+q	D:\GitHub\Messaging\dispatcher\dispatcher.h	/^    queue* q;$/;"	member	line:64	class:messaging::dispatcher	access:private
+chained	D:\GitHub\Messaging\dispatcher\dispatcher.h	/^    bool chained;$/;"	member	line:65	class:messaging::dispatcher	access:private
+MESSAGES_H	D:\GitHub\Messaging\messages\messages.h	/^#define MESSAGES_H$/;"	macro	line:2
+withdraw	D:\GitHub\Messaging\messages\messages.h	/^struct withdraw {$/;"	struct	line:8
+account	D:\GitHub\Messaging\messages\messages.h	/^    std::string account;$/;"	member	line:9	struct:withdraw	access:public
+amount	D:\GitHub\Messaging\messages\messages.h	/^    unsigned int amount;$/;"	member	line:10	struct:withdraw	access:public
+atm_queue	D:\GitHub\Messaging\messages\messages.h	/^    mutable messaging::sender atm_queue;$/;"	member	line:11	struct:withdraw	access:public
+withdraw	D:\GitHub\Messaging\messages\messages.h	/^    withdraw(std::string const& account_, unsigned amount_, messaging::sender atm_queue_) :$/;"	function	line:13	struct:withdraw	access:public	signature:(std::string const& account_, unsigned amount_, messaging::sender atm_queue_)
+withdraw_ok	D:\GitHub\Messaging\messages\messages.h	/^struct withdraw_ok {};$/;"	struct	line:17
+withdraw_denied	D:\GitHub\Messaging\messages\messages.h	/^struct withdraw_denied {};$/;"	struct	line:19
+cancel_withdrawal	D:\GitHub\Messaging\messages\messages.h	/^struct cancel_withdrawal {$/;"	struct	line:21
+account	D:\GitHub\Messaging\messages\messages.h	/^    std::string account;$/;"	member	line:22	struct:cancel_withdrawal	access:public
+amount	D:\GitHub\Messaging\messages\messages.h	/^    unsigned int amount;$/;"	member	line:23	struct:cancel_withdrawal	access:public
+cancel_withdrawal	D:\GitHub\Messaging\messages\messages.h	/^    cancel_withdrawal(const std::string& account_, unsigned int amount_) :$/;"	function	line:24	struct:cancel_withdrawal	access:public	signature:(const std::string& account_, unsigned int amount_)
+withdrawal_processed	D:\GitHub\Messaging\messages\messages.h	/^struct withdrawal_processed {$/;"	struct	line:28
+account	D:\GitHub\Messaging\messages\messages.h	/^    std::string account;$/;"	member	line:29	struct:withdrawal_processed	access:public
+amount	D:\GitHub\Messaging\messages\messages.h	/^    unsigned int amount;$/;"	member	line:30	struct:withdrawal_processed	access:public
+withdrawal_processed	D:\GitHub\Messaging\messages\messages.h	/^    withdrawal_processed(const std::string& account_, unsigned int amount_) :$/;"	function	line:31	struct:withdrawal_processed	access:public	signature:(const std::string& account_, unsigned int amount_)
+card_inserted	D:\GitHub\Messaging\messages\messages.h	/^struct card_inserted {$/;"	struct	line:35
+account	D:\GitHub\Messaging\messages\messages.h	/^    std::string account;$/;"	member	line:36	struct:card_inserted	access:public
+card_inserted	D:\GitHub\Messaging\messages\messages.h	/^    explicit card_inserted(const std::string& account_) : account(account_) {}$/;"	function	line:37	struct:card_inserted	access:public	signature:(const std::string& account_)	returns:explicit 
+digit_pressed	D:\GitHub\Messaging\messages\messages.h	/^struct digit_pressed {$/;"	struct	line:40
+digit	D:\GitHub\Messaging\messages\messages.h	/^    char digit;$/;"	member	line:41	struct:digit_pressed	access:public
+digit_pressed	D:\GitHub\Messaging\messages\messages.h	/^    explicit digit_pressed(char digit_) : digit(digit_) {}$/;"	function	line:42	struct:digit_pressed	access:public	signature:(char digit_)	returns:explicit 
+clear_last_pressed	D:\GitHub\Messaging\messages\messages.h	/^struct clear_last_pressed {};$/;"	struct	line:45
+eject_card	D:\GitHub\Messaging\messages\messages.h	/^struct eject_card {};$/;"	struct	line:47
+withdraw_pressed	D:\GitHub\Messaging\messages\messages.h	/^struct withdraw_pressed {$/;"	struct	line:49
+amount	D:\GitHub\Messaging\messages\messages.h	/^    unsigned int amount;$/;"	member	line:50	struct:withdraw_pressed	access:public
+withdraw_pressed	D:\GitHub\Messaging\messages\messages.h	/^    explicit withdraw_pressed(unsigned amount_) : amount(amount_) {}$/;"	function	line:51	struct:withdraw_pressed	access:public	signature:(unsigned amount_)	returns:explicit 
+cancel_pressed	D:\GitHub\Messaging\messages\messages.h	/^struct cancel_pressed {};$/;"	struct	line:54
+issue_money	D:\GitHub\Messaging\messages\messages.h	/^struct issue_money {$/;"	struct	line:56
+amount	D:\GitHub\Messaging\messages\messages.h	/^    unsigned int amount;$/;"	member	line:57	struct:issue_money	access:public
+issue_money	D:\GitHub\Messaging\messages\messages.h	/^    issue_money(unsigned int amount_) : amount(amount_) {}$/;"	function	line:58	struct:issue_money	access:public	signature:(unsigned int amount_)
+verify_pin	D:\GitHub\Messaging\messages\messages.h	/^struct verify_pin {$/;"	struct	line:61
+account	D:\GitHub\Messaging\messages\messages.h	/^    std::string account;$/;"	member	line:62	struct:verify_pin	access:public
+pin	D:\GitHub\Messaging\messages\messages.h	/^    std::string pin;$/;"	member	line:63	struct:verify_pin	access:public
+atm_queue	D:\GitHub\Messaging\messages\messages.h	/^    mutable messaging::sender atm_queue;$/;"	member	line:64	struct:verify_pin	access:public
+verify_pin	D:\GitHub\Messaging\messages\messages.h	/^    verify_pin(const std::string& account_, const std::string& pin_, messaging::sender atm_queue_) :$/;"	function	line:65	struct:verify_pin	access:public	signature:(const std::string& account_, const std::string& pin_, messaging::sender atm_queue_)
+pin_verified	D:\GitHub\Messaging\messages\messages.h	/^struct pin_verified {};$/;"	struct	line:69
+pin_incorrect	D:\GitHub\Messaging\messages\messages.h	/^struct pin_incorrect {};$/;"	struct	line:71
+display_enter_pin	D:\GitHub\Messaging\messages\messages.h	/^struct display_enter_pin {};$/;"	struct	line:73
+display_enter_card	D:\GitHub\Messaging\messages\messages.h	/^struct display_enter_card {};$/;"	struct	line:75
+display_insufficient_funds	D:\GitHub\Messaging\messages\messages.h	/^struct display_insufficient_funds {};$/;"	struct	line:77
+display_withdrawal_cancelled	D:\GitHub\Messaging\messages\messages.h	/^struct display_withdrawal_cancelled {};$/;"	struct	line:79
+display_pin_incorrect_message	D:\GitHub\Messaging\messages\messages.h	/^struct display_pin_incorrect_message {};$/;"	struct	line:81
+display_withdrawal_options	D:\GitHub\Messaging\messages\messages.h	/^struct display_withdrawal_options {};$/;"	struct	line:83
+get_balance	D:\GitHub\Messaging\messages\messages.h	/^struct get_balance {$/;"	struct	line:85
+account	D:\GitHub\Messaging\messages\messages.h	/^    std::string account;$/;"	member	line:86	struct:get_balance	access:public
+atm_queue	D:\GitHub\Messaging\messages\messages.h	/^    mutable messaging::sender atm_queue;$/;"	member	line:87	struct:get_balance	access:public
+get_balance	D:\GitHub\Messaging\messages\messages.h	/^    get_balance(const std::string& account_, messaging::sender atm_queue_) :$/;"	function	line:88	struct:get_balance	access:public	signature:(const std::string& account_, messaging::sender atm_queue_)
+balance	D:\GitHub\Messaging\messages\messages.h	/^struct balance {$/;"	struct	line:92
+amount	D:\GitHub\Messaging\messages\messages.h	/^    unsigned int amount;$/;"	member	line:93	struct:balance	access:public
+balance	D:\GitHub\Messaging\messages\messages.h	/^    explicit balance(unsigned amount_) : amount(amount_) {}$/;"	function	line:94	struct:balance	access:public	signature:(unsigned amount_)	returns:explicit 
+display_balance	D:\GitHub\Messaging\messages\messages.h	/^struct display_balance {$/;"	struct	line:97
+amount	D:\GitHub\Messaging\messages\messages.h	/^    unsigned int amount;$/;"	member	line:98	struct:display_balance	access:public
+display_balance	D:\GitHub\Messaging\messages\messages.h	/^    explicit display_balance(unsigned amount_) : amount(amount_) {}$/;"	function	line:99	struct:display_balance	access:public	signature:(unsigned amount_)	returns:explicit 
+balance_pressed	D:\GitHub\Messaging\messages\messages.h	/^struct balance_pressed {};$/;"	struct	line:102
+QUEUE_H	D:\GitHub\Messaging\base\queue.h	/^#define QUEUE_H$/;"	macro	line:2
+messaging	D:\GitHub\Messaging\base\queue.h	/^namespace messaging {$/;"	namespace	line:11
+queue	D:\GitHub\Messaging\base\queue.h	/^class queue {$/;"	class	line:12	namespace:messaging
+push	D:\GitHub\Messaging\base\queue.h	/^    template<typename T>     void push(T const& msg) $/;"	function	line:15	class:messaging::queue	access:public	signature:(T const& msg)	returns:template void 
+wait_and_pop	D:\GitHub\Messaging\base\queue.h	/^    std::shared_ptr<message_base> wait_and_pop()$/;"	function	line:23	class:messaging::queue	access:public	signature:()	returns:std :: shared_ptr <message_base> 
+m	D:\GitHub\Messaging\base\queue.h	/^    std::mutex m;$/;"	member	line:34	class:messaging::queue	access:private
+c	D:\GitHub\Messaging\base\queue.h	/^    std::condition_variable c;$/;"	member	line:35	class:messaging::queue	access:private
+q	D:\GitHub\Messaging\base\queue.h	/^    std::queue<std::shared_ptr<message_base> > q; \/\/internal queue stores pointer to message_base$/;"	member	line:36	class:messaging::queue	access:private
+TEMPLATE_DISPATCHER_H	D:\GitHub\Messaging\dispatcher\TemplateDispatcher.h	/^#define TEMPLATE_DISPATCHER_H$/;"	macro	line:2
+messaging	D:\GitHub\Messaging\dispatcher\TemplateDispatcher.h	/^namespace messaging {$/;"	namespace	line:3
+TemplateDispatcher	D:\GitHub\Messaging\dispatcher\TemplateDispatcher.h	/^template<     typename PreviousDispatcher,     typename Msg,     typename Func> class TemplateDispatcher { $/;"	class	line:8	namespace:messaging
+TemplateDispatcher	D:\GitHub\Messaging\dispatcher\TemplateDispatcher.h	/^    TemplateDispatcher(TemplateDispatcher&& other) : q(other.q), prev(other.prev),$/;"	function	line:13	class:messaging::TemplateDispatcher	access:public	signature:(TemplateDispatcher&& other)
+TemplateDispatcher	D:\GitHub\Messaging\dispatcher\TemplateDispatcher.h	/^    TemplateDispatcher(queue* q_, PreviousDispatcher* prev_, Func&& f_) :$/;"	function	line:19	class:messaging::TemplateDispatcher	access:public	signature:(queue* q_, PreviousDispatcher* prev_, Func&& f_)
+TemplateDispatcher	D:\GitHub\Messaging\dispatcher\TemplateDispatcher.h	/^    TemplateDispatcher(TemplateDispatcher const&) = delete;$/;"	prototype	line:25	class:messaging::TemplateDispatcher	access:public	signature:(TemplateDispatcher const&)
+operator =	D:\GitHub\Messaging\dispatcher\TemplateDispatcher.h	/^    TemplateDispatcher& operator=(TemplateDispatcher const&) = delete;$/;"	prototype	line:26	class:messaging::TemplateDispatcher	access:public	signature:(TemplateDispatcher const&)	returns:TemplateDispatcher 
+handle	D:\GitHub\Messaging\dispatcher\TemplateDispatcher.h	/^    template<typename OtherMsg, typename OtherFunc>     TemplateDispatcher<TemplateDispatcher, OtherMsg, OtherFunc> handle(OtherFunc&& of) $/;"	function	line:30	class:messaging::TemplateDispatcher	access:public	signature:(OtherFunc&& of)	returns:template TemplateDispatcher <TemplateDispatcher, OtherMsg, OtherFunc> 
+noexcept	D:\GitHub\Messaging\dispatcher\TemplateDispatcher.h	/^    ~TemplateDispatcher() noexcept(false)$/;"	function	line:40	class:messaging::TemplateDispatcher	access:public	signature:(false)
+wait_and_dispatch	D:\GitHub\Messaging\dispatcher\TemplateDispatcher.h	/^    void wait_and_dispatch()$/;"	function	line:48	class:messaging::TemplateDispatcher	access:private	signature:()	returns:void 
+dispatch	D:\GitHub\Messaging\dispatcher\TemplateDispatcher.h	/^    bool dispatch(std::shared_ptr<message_base> const& msg)$/;"	function	line:58	class:messaging::TemplateDispatcher	access:private	signature:(std::shared_ptr<message_base> const& msg)	returns:bool 
+q	D:\GitHub\Messaging\dispatcher\TemplateDispatcher.h	/^    queue* q;$/;"	member	line:70	class:messaging::TemplateDispatcher	access:private
+prev	D:\GitHub\Messaging\dispatcher\TemplateDispatcher.h	/^    PreviousDispatcher* prev;$/;"	member	line:71	class:messaging::TemplateDispatcher	access:private
+f	D:\GitHub\Messaging\dispatcher\TemplateDispatcher.h	/^    Func f;$/;"	member	line:72	class:messaging::TemplateDispatcher	access:private
+chained	D:\GitHub\Messaging\dispatcher\TemplateDispatcher.h	/^    bool chained;$/;"	member	line:73	class:messaging::TemplateDispatcher	access:private
+main	D:\GitHub\Messaging\main.cpp	/^int main()$/;"	function	line:13	signature:()	returns:int 
+bank_machine	D:\GitHub\Messaging\bank_machine.h	/^class bank_machine {$/;"	class	line:12
+incoming	D:\GitHub\Messaging\bank_machine.h	/^    messaging::receiver incoming;$/;"	member	line:13	class:bank_machine	access:private
+balance	D:\GitHub\Messaging\bank_machine.h	/^    unsigned balance;$/;"	member	line:14	class:bank_machine	access:private
+bank_machine	D:\GitHub\Messaging\bank_machine.h	/^    bank_machine() : balance(199) {}$/;"	function	line:16	class:bank_machine	access:public	signature:()
+done	D:\GitHub\Messaging\bank_machine.h	/^    void done()$/;"	function	line:17	class:bank_machine	access:public	signature:()	returns:void 
+run	D:\GitHub\Messaging\bank_machine.h	/^    void run()$/;"	function	line:21	class:bank_machine	access:public	signature:()	returns:void 
+get_sender	D:\GitHub\Messaging\bank_machine.h	/^    messaging::sender get_sender()$/;"	function	line:55	class:bank_machine	access:public	signature:()	returns:messaging :: sender 
+SENDER_H	D:\GitHub\Messaging\sender\sender.h	/^#define SENDER_H$/;"	macro	line:2
+messaging	D:\GitHub\Messaging\sender\sender.h	/^namespace messaging {$/;"	namespace	line:6
+sender	D:\GitHub\Messaging\sender\sender.h	/^class sender {$/;"	class	line:7	namespace:messaging
+sender	D:\GitHub\Messaging\sender\sender.h	/^    sender(): q(nullptr) {} \/\/default-constructed sender has no queue$/;"	function	line:9	class:messaging::sender	access:public	signature:()
+sender	D:\GitHub\Messaging\sender\sender.h	/^    explicit sender(queue *q_): q(q_) {} \/\/allow construction from pointer to queue$/;"	function	line:10	class:messaging::sender	access:public	signature:(queue *q_)	returns:explicit 
+send	D:\GitHub\Messaging\sender\sender.h	/^    template<typename Message>      void send(Message const& msg) $/;"	function	line:13	class:messaging::sender	access:public	signature:(Message const& msg)	returns:template void 
+q	D:\GitHub\Messaging\sender\sender.h	/^    queue *q; \/\/sender ifi a wrapper around the queue potinter$/;"	member	line:21	class:messaging::sender	access:private

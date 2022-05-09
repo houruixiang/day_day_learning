@@ -1,0 +1,7 @@
+SENDER_H	D:\GitHub\Messaging\sender\sender.h	/^#define SENDER_H$/;"	macro	line:2
+messaging	D:\GitHub\Messaging\sender\sender.h	/^namespace messaging {$/;"	namespace	line:6
+sender	D:\GitHub\Messaging\sender\sender.h	/^class sender {$/;"	class	line:7	namespace:messaging
+sender	D:\GitHub\Messaging\sender\sender.h	/^    sender(): q(nullptr) {} \/\/default-constructed sender has no queue$/;"	function	line:9	class:messaging::sender	access:public	signature:()
+sender	D:\GitHub\Messaging\sender\sender.h	/^    explicit sender(queue *q_): q(q_) {} \/\/allow construction from pointer to queue$/;"	function	line:10	class:messaging::sender	access:public	signature:(queue *q_)	returns:explicit 
+send	D:\GitHub\Messaging\sender\sender.h	/^    template<typename Message>      void send(Message const& msg) $/;"	function	line:13	class:messaging::sender	access:public	signature:(Message const& msg)	returns:template void 
+q	D:\GitHub\Messaging\sender\sender.h	/^    queue *q; \/\/sender ifi a wrapper around the queue potinter$/;"	member	line:21	class:messaging::sender	access:private
