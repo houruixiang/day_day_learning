@@ -8,6 +8,7 @@
 #include "Callbacks.h"
 #include "CallbackLists.h"
 #include "SimpleCallbackList.h"
+#include "Delegate.h"
 
 int main(void)
 {
@@ -22,5 +23,6 @@ int main(void)
 
     Test_SimpleCallbackList();
 
+    Test_Delegate();
     return 0;
 }
