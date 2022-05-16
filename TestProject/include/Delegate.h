@@ -165,6 +165,8 @@ private:
 // MakeDelegate返回的类型含有Class信息，还是没有办法统一存储
 void Test_Delegate()
 {
+    std::cout << std::endl << "---Test Delegate---" << std::endl;
+
     listener l;
     auto d = MakeDelegate(&listener::msgReceived, l);
     // ...

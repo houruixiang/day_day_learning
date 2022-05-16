@@ -44,6 +44,18 @@ functional
 type_traits
 -
 
+../include/NoTemplateDelegate.h
+map
+-
+string
+-
+tuple
+-
+functional
+-
+type_traits
+-
+
 ../include/SimpleCallbackList.h
 vector
 -
@@ -77,4 +89,6 @@ SimpleCallbackList.h
 d:/GitHub/day_day_learning/TestProject/SimpleCallbackList.h
 Delegate.h
 d:/GitHub/day_day_learning/TestProject/Delegate.h
+NoTemplateDelegate.h
+d:/GitHub/day_day_learning/TestProject/NoTemplateDelegate.h
 

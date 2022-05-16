@@ -6,5 +6,6 @@ CMakeFiles/main.dir/main.cpp.o
  ../include/Callbacks.h
  ../include/ConvertVariant.h
  ../include/Delegate.h
+ ../include/NoTemplateDelegate.h
  ../include/SimpleCallbackList.h
  d:/GitHub/day_day_learning/TestProject/main.cpp

@@ -225,6 +225,8 @@ public:
 
 void Test_CallbackList()
 {
+    std::cout << std::endl << "---Test CallbackList---" << std::endl;
+
     using Func = std::function<int(int)>;
     CallbackList<Func> l;
     CallbackHolder holder;

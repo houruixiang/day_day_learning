@@ -9,6 +9,7 @@
 #include "CallbackLists.h"
 #include "SimpleCallbackList.h"
 #include "Delegate.h"
+#include "NoTemplateDelegate.h"
 
 int main(void)
 {
@@ -24,5 +25,9 @@ int main(void)
     Test_SimpleCallbackList();
 
     Test_Delegate();
+
+    Test_NoTemplateDelegate();
+
+
     return 0;
 }

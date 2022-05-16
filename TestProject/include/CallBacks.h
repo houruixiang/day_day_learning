@@ -93,6 +93,8 @@ private:
 
 void Test_CallBacks()
 {
+    std::cout << std::endl << "---Test CallBacks---" << std::endl;
+
     CallBacks callback;
     callback.RegisterCb(0, FuncType {(FuncA)CallA});
     callback.RegisterCb(1, FuncType {(FuncB)CallB});

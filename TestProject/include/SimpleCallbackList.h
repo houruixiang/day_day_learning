@@ -70,7 +70,7 @@ public:
 
 void Test_SimpleCallbackList()
 {
-    std::cout << "Test SimpleCallbackList" << std::endl;
+    std::cout << "---Test SimpleCallbackList---" << std::endl;
 
     using FuncType = std::function<int(int)>;
     SimpleCallbackList<FuncType> sl;
