@@ -63,7 +63,6 @@
 
 using namespace std;
 
-
 struct TreeNode {
     int val;
     TreeNode *left;
@@ -76,7 +75,8 @@ struct TreeNode {
 
 class Solution {
 public:
-    vector<vector<int>> verticalOrder(TreeNode* root) {
+    vector<vector<int>> verticalOrder(TreeNode* root)
+    {
         inoder(root, 0, 0);
         vector<vector<int>> res;
         int idx = 0;
