@@ -256,3 +256,30 @@ Parsed CXX implicit link information from above output:
   implicit fwks: []
 
 
+The system is: Windows - 10.0.19044 - AMD64
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: C:/cygwin64/bin/g++.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.exe"
+
+The CXX compiler identification is GNU, found in "D:/GitHub/day_day_learning/TestProject/build/CMakeFiles/3.20.21032501-MSVC_2/CompilerIdCXX/a.exe"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: C:/cygwin64/bin/g++.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.exe"
+
+The CXX compiler identification is GNU, found in "D:/GitHub/day_day_learning/TestProject/build/CMakeFiles/3.20.21032501-MSVC_2/CompilerIdCXX/a.exe"
+
