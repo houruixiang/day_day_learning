@@ -58,6 +58,25 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
+
+
+#pragma once
+
+#include <map>
+#include <stack>
+#include <sstream>
+#include <string>
+#include <limits.h>
+#include <iostream>
+#include <vector>
+#include <deque>
+#include <algorithm>
+#include <cmath>
+
+using namespace std;
+
+
 // class Solution {
 // public:
 //     vector<int> preorderTraversal(TreeNode* root) {
